@@ -10,6 +10,10 @@ project(test_ucx)
 
 find_package(UCX REQUIRED COMPONENTS ucp uct ucs)
 
+# Run find_package again to ensure targets do not get created again
+# NOTE: This is for testing only, do not do this in your own project
+find_package(UCX REQUIRED COMPONENTS ucp uct ucs)
+
 add_executable(test_ucp test_ucp.c)
 target_link_libraries(test_ucp ucx::ucp)
 
